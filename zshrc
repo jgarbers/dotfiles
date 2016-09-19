@@ -87,4 +87,15 @@ alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
 
-# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# Vim integration per "Text Triumverate" guidelines
+export EDITOR="vim"
+bindkey -v 
+
+# vi style incremental search
+bindkey '^R' history-incremental-search-backward
+bindkey '^S' history-incremental-search-forward
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward  
+
+
+ # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
