@@ -69,6 +69,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'sandeepcr529/Buffet.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vimwiki/vimwiki'
 
 " XML folding
 :let g:xml_syntax_folding = 1
