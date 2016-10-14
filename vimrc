@@ -90,7 +90,7 @@ set background=dark
 
 if has("gui_running")
     set guioptions=egmrt
-    set guifont=Inconsolata:h12
+    set guifont=Inconsolata-dz\ for\ Powerline:h12
     set linespace=2
 endif
 
