@@ -12,7 +12,7 @@ set hidden
 set showcmd
 set nowrap
 set laststatus=2
-set autoindent
+" set autoindent
 set wildmenu
 set autoread
 set t_Co=256
@@ -33,9 +33,10 @@ set undolevels=1000
 set undoreload=10000
 
 filetype plugin on
+filetype indent on
 set omnifunc=syntaxcomplete#Complete
 
-runtime macros/matchit.vim
+" runtime macros/matchit.vim
 
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
@@ -110,7 +111,6 @@ set expandtab
 " Searching
 set ignorecase
 set smartcase
-set smartindent
 set incsearch
 set showmatch
 set hlsearch
@@ -147,7 +147,6 @@ nnoremap <leader>L :set nu! \| set list!<CR>
 nnoremap <leader>N :set rnu!<CR>
 " nnoremap <leader>M :silent !open -a Marked.app '%:p'<cr>
 nnoremap <leader>n :cn<CR>
-nnoremap <leader>N :NERDTree ~/Dropbox/Notes/<cr>
 nnoremap <leader>p :cp<CR>
 " nnoremap <leader>t :VimwikiToggleListItem<cr>
 nnoremap <leader>w :wa<CR>
@@ -192,15 +191,12 @@ autocmd QuickFixCmdPost    l* nested lwindow
 
 " Settings for plugins.
 
-" Command-T stuff
-" let g:CommandTMatchWindowReverse = 1
-
 " CtrlP stuff
 set wildignore+=*.o,*.obj,.git,.svn,*.pyc,*.pyo,*.png,*.jpg,build,venv
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_extensions = ['tag', 'buffertag', 'quickfix', 'dir', 'rtscript',
                       \ 'undo', 'line', 'changes', 'mixed', 'bookmarkdir']
-"
+
 " Taglist stuff
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_WinWidth = 50
