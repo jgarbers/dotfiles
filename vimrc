@@ -70,7 +70,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'sandeepcr529/Buffet.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
-" Plugin 'vimwiki/vimwiki'
 
 " XML folding
 :let g:xml_syntax_folding = 1
@@ -154,10 +153,15 @@ nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <leader>z :ZoomWin<CR>
 
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 map <F1> :help 
 map <F2> :NERDTreeToggle<CR>
 map <S-F2> :NERDTreeFind<CR>
 map <F3> :Autoformat<CR>
+
+"
 " map <F5> :!ano build && ano upload<CR>
 " map <F3> :call ToggleQuickfixList()<CR>
 " map <F4> :TlistToggle<CR>

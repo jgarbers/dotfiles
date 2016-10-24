@@ -51,7 +51,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git brew osx z tmux vi-mode python)
+plugins=(git brew osx z tmux vi-mode python docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,6 +86,9 @@ bindkey -v
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
+alias denv='eval "$(docker-machine env default)"'
+alias dpurge='docker rm $(docker ps -a -q -f status=exited)'
+alias sshbh='ssh -i ~/.ssh/bluehost.pub eitwoonl@ei2online.org'
 
 # Vim integration per "Text Triumverate" guidelines
 export EDITOR="vim"
