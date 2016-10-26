@@ -81,12 +81,14 @@ let g:vim_markdown_folding_disabled = 1
 " Airline fonts
 let g:airline_powerline_fonts=1
 
-highlight NonText guifg=#d0d0d0
-highlight SpecialKey guifg=#d0d0d0
 
 let g:solarized_termtrans = 1
 colorscheme solarized
 set background=dark
+
+highlight NonText guifg=#d0d0d0
+highlight SpecialKey guifg=#d0d0d0
+highlight Comment cterm=italic
 
 if has("gui_running")
     set guioptions=egmrt
