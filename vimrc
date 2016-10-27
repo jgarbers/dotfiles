@@ -43,9 +43,6 @@ iab <expr> isod strftime("%Y-%m-%d")
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> isot strftime("%H:%M")
 
-" Tags stuff
-" let g:autotagVerbosityLevel=9
-
 " Use space for easymotion leader
 let g:EasyMotion_leader_key = '<Space>'
 
@@ -87,6 +84,7 @@ highlight SpecialKey guifg=#d0d0d0
 let g:solarized_termtrans = 1
 colorscheme solarized
 set background=dark
+highlight Comment cterm=italic
 
 if has("gui_running")
     set guioptions=egmrt
@@ -116,6 +114,9 @@ set hlsearch
 
 " Prettier tab/EOL chars
 set listchars=tab:▸\ ,eol:¬,trail:·
+
+" Printing
+set printoptions=paper:letter
 
 " Source the vimrc file after saving it, and other autocommands.
 if has("autocmd")
@@ -147,25 +148,17 @@ nnoremap <leader>N :set rnu!<CR>
 " nnoremap <leader>M :silent !open -a Marked.app '%:p'<cr>
 nnoremap <leader>n :cn<CR>
 nnoremap <leader>p :cp<CR>
-" nnoremap <leader>t :VimwikiToggleListItem<cr>
 nnoremap <leader>w :wa<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <leader>z :ZoomWin<CR>
 
-"Remove all trailing whitespace by pressing F5
-nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
 map <F1> :help 
 map <F2> :NERDTreeToggle<CR>
 map <S-F2> :NERDTreeFind<CR>
 map <F3> :Autoformat<CR>
-
-"
-" map <F5> :!ano build && ano upload<CR>
-" map <F3> :call ToggleQuickfixList()<CR>
-" map <F4> :TlistToggle<CR>
-" map <F5> :GundoToggle<CR>
+"Remove all trailing whitespace by pressing F5
+map <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
