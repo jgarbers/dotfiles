@@ -27,3 +27,7 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
 
+# blade guard off rm
+unalias rm
+
+
