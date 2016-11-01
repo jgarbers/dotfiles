@@ -30,4 +30,6 @@ bindkey '^N' history-search-forward
 # blade guard off rm
 unalias rm
 
+# autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
