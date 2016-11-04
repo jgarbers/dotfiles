@@ -33,3 +33,5 @@ unalias rm
 # autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
+# add locally-installed Python commands to path
+export PATH=$PATH:~/Library/Python/2.7/bin/
