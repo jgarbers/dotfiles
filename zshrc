@@ -13,9 +13,16 @@ fi
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
-alias denv='eval "$(docker-machine env default)"'
-alias dpurge='docker rm $(docker ps -a -q -f status=exited)'
 alias sshbh='ssh -i ~/.ssh/bluehost.pub eitwoonl@ei2online.org'
+alias jd='j ~/.dotfiles'
+
+alias denv='eval "$(docker-machine env default)"'
+alias dpg='docker rm $(docker ps -a -q -f status=exited)'
+alias dcu='docker-compose up'
+alias dcs='docker-compose stop'
+alias dcl='docker-compose logs'
+alias dps='docker ps -a'
+dsh() { docker exec -it $1 bash }
 
 # Vim integration per "Text Triumverate" guidelines
 export EDITOR="vim"
@@ -33,5 +40,5 @@ unalias rm
 # autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
-# add locally-installed Python commands to path
-export PATH=$PATH:~/Library/Python/2.7/bin/
+# add my local bin and locally-installed Python commands to path
+export PATH=~/bin:$PATH:~/Library/Python/2.7/bin/
