@@ -13,13 +13,16 @@ fi
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
-alias sshbh='ssh -i ~/.ssh/bluehost.pub eitwoonl@ei2online.org'
+alias sshbh='ssh -i ~/.ssh/bluehost eitwoonl@ei2online.org'
 alias jd='j ~/.dotfiles'
+
+alias trn='tmux rename-window'
 
 alias denv='eval "$(docker-machine env default)"'
 alias dpg='docker rm $(docker ps -a -q -f status=exited)'
 alias dcu='docker-compose up'
 alias dcs='docker-compose stop'
+alias dcr='docker-compose restart'
 alias dcl='docker-compose logs'
 alias dps='docker ps -a'
 dsh() { docker exec -it $1 bash }
