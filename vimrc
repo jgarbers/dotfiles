@@ -58,6 +58,7 @@ Plugin 'gmarik/vundle'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-commentary'
 
 " Appearance
 let g:airline_powerline_fonts=1
