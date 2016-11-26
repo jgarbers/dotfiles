@@ -95,6 +95,8 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>X ^iNO <Esc>j^
 
+map <F2> :Lexplore<CR>
+
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
 
@@ -102,6 +104,7 @@ au FocusLost * call feedkeys("\<C-\>\<C-n>")
 let g:netrw_banner=0        " disable annoying banner
 let g:netrw_browse_split=4  " open in prior window
 let g:netrw_altv=1          " open splits to the right
+let g:netrw_winsize=25      " 25% of window width
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
