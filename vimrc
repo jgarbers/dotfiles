@@ -24,7 +24,10 @@ set statusline=%<\ %F%m%r%=\ %{&fileformat}\ \|\ %{fugitive#statusline()}\ \|\ %
 set title
 set ttimeout
 set ttimeoutlen=100
+
+set wildchar=<Tab>
 set wildmenu
+set wildmode=full
 
 " We avoid using backup to get good filesystem events on changes.
 set nobackup
@@ -93,6 +96,7 @@ nmap <C-l> <C-w>l
 
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
+nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>X ^iNO <Esc>j^
 
 map <F2> :Lexplore<CR>
