@@ -1,0 +1,6 @@
+--python-kinds=-i
+--exclude=build
+--exclude=dist
+--extra=+f
+
+
