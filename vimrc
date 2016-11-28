@@ -99,6 +99,8 @@ nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>X ^iNO <Esc>j^
 
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
 map <F2> :Lexplore<CR>
 
 " Exit insert mode when switching away
