@@ -62,6 +62,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
+Plugin 'scrooloose/nerdtree'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -101,7 +102,8 @@ nnoremap <leader>X ^iNO <Esc>j^
 
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
-map <F2> :Lexplore<CR>
+" map <F2> :Lexplore<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
@@ -114,6 +116,14 @@ let g:netrw_winsize=25      " 25% of window width
 let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+" NERDTree options
+let NERDTreeMapOpenVSplit="<C-v>"
+let NERDTreeMapOpenSplit="<C-s>"
+let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeHijackNetrw=1
+let NERDTreeMinimalUI=1
+
 
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")

@@ -18,15 +18,22 @@ alias jd='j ~/.dotfiles'
 
 alias trn='tmux rename-window'
 
+# Docker-related aliases
+alias dk='docker'
 alias denv='eval "$(docker-machine env default)"'
 alias dpg='docker rm $(docker ps -a -q -f status=exited) && docker images -q --filter "dangling=true" | xargs docker rmi'
 alias dcu='docker-compose up'
+alias dcub='docker-compose up --build'
 alias dcs='docker-compose stop'
 alias dcr='docker-compose restart'
 alias dcl='docker-compose logs'
 alias dps='docker ps -a'
-alias drbi='echo Rebuilding "${PWD##*/}" &&  docker build -t jgarbers/"${PWD##*/}" .'
-dsh() { docker exec -it $1 bash }
+alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t jgarbers/"${PWD##*/}" .'
+alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t jgarbers/"${PWD##*/}" python -m unittest discover /ranger/tests'
+dksh() { docker exec -it $1 bash }
+
+# Free up Ctrl-S and Ctrl-Q for mappings
+stty -ixon -ixoff
 
 # Vim integration per "Text Triumverate" guidelines
 export EDITOR="vim"
