@@ -95,6 +95,8 @@ nmap <C-h> <C-w>h
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+nnoremap <C-c> :bp\|bd #<CR>
+
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
