@@ -62,7 +62,11 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
+
+" Python-dev specific
+Plugin 'nvie/vim-flake8'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -95,17 +99,16 @@ nmap <C-h> <C-w>h
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-nnoremap <C-c> :bp\|bd #<CR>
-
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
+nnoremap <leader>d :call BufferDelete()<CR>
 nnoremap <leader>X ^iNO <Esc>j^
+nnoremap <Leader>C :call <SID>ToggleColorColumn()<cr>
 
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
 " map <F2> :Lexplore<CR>
-map <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
@@ -132,3 +135,36 @@ iab <expr> isod strftime("%Y-%m-%d")
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> isot strftime("%H:%M")
 
+" Functions.
+
+" Toggle colored right border
+let s:color_column_old = 80
+function! s:ToggleColorColumn()
+    if s:color_column_old == 0
+        let s:color_column_old = &colorcolumn
+        let &colorcolumn = 0
+    else
+        let &colorcolumn=s:color_column_old
+        let s:color_column_old = 0
+    endif
+endfunction
+
+" Safe buffer delete.
+function! BufferDelete()
+    if &modified
+        echohl ErrorMsg
+        echomsg "No write since last change. Not closing buffer."
+        echohl NONE
+    else
+        let s:total_nr_buffers = len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+
+        if s:total_nr_buffers == 1
+            bdelete
+            echo "Buffer deleted. Created new buffer."
+        else
+            bprevious
+            bdelete #
+            echo "Buffer deleted."
+        endif
+    endif
+endfunction
