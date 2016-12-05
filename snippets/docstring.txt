@@ -1,0 +1,14 @@
+"""
+Describe class or function
+
+Args:
+	param1: describe param1
+	param2: describe param2
+
+Returns:
+	describe what's returned
+
+Raises:
+	KeyError: Raises an exception.
+"""
+

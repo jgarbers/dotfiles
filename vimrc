@@ -64,9 +64,11 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
+" Plugin 'sirver/ultisnips'
 
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
+Plugin 'honza/vim-snippets'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -104,7 +106,8 @@ nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :call BufferDelete()<CR>
 nnoremap <leader>X ^iNO <Esc>j^
-nnoremap <Leader>C :call <SID>ToggleColorColumn()<cr>
+nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
+nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
 
 " map <F2> :Lexplore<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
@@ -128,7 +131,6 @@ let NERDTreeMapOpenSplit="<C-s>"
 let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeHijackNetrw=1
 let NERDTreeMinimalUI=1
-
 
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
