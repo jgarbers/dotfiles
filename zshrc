@@ -28,8 +28,9 @@ alias dcs='docker-compose stop'
 alias dcr='docker-compose restart'
 alias dcl='docker-compose logs'
 alias dps='docker ps -a'
-alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t jgarbers/"${PWD##*/}" .'
-alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t jgarbers/"${PWD##*/}" python -m unittest discover /ranger/tests'
+alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" .'
+alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" . && docker run -p 5000:5000 ranger/"${PWD##*/}"'
+alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t ranger/"${PWD##*/}" python -m unittest discover /ranger/tests'
 dksh() { docker exec -it $1 bash }
 
 # Free up Ctrl-S and Ctrl-Q for mappings
