@@ -70,9 +70,14 @@ Plugin 'ctrlpvim/ctrlp.vim'
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
 
-" JS-dev specific
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+" Web-dev specific
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+Plugin 'chemzqm/vim-jsx-improve'
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+
 
 " Snippets
 " Plugin 'sirver/ultisnips'
@@ -113,6 +118,8 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :call BufferDelete()<CR>
+nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
 nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
