@@ -13,7 +13,7 @@ fi
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
-alias sshbh='ssh -i ~/.ssh/bluehost eitwoonl@ei2online.org'
+alias sshwh='ssh -p 5550 warehouse'
 alias jd='j ~/.dotfiles'
 
 alias trn='tmux rename-window'
@@ -31,6 +31,8 @@ alias dps='docker ps -a'
 alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" .'
 alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" . && docker run -p 5000:5000 ranger/"${PWD##*/}"'
 alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t ranger/"${PWD##*/}" python -m unittest discover /ranger/tests'
+alias dkip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+
 dksh() { docker exec -it $1 bash }
 
 # Free up Ctrl-S and Ctrl-Q for mappings
