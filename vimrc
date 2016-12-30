@@ -64,11 +64,19 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'sirver/ultisnips'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
-Plugin 'honza/vim-snippets'
+
+" JS-dev specific
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+" Snippets
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -132,10 +140,17 @@ let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeHijackNetrw=1
 let NERDTreeMinimalUI=1
 
+" CtrlP options
+ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" Syntastic options
+let g:syntastic_javascript_checkers = ['eslint']
+
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> isot strftime("%H:%M")
+iab <expr> gtc strftime("# Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
 
 " Functions.
 
