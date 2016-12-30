@@ -14,7 +14,7 @@ set guitablabel=%N/\ %t\ %M
 set hidden
 set history=1000
 set laststatus=2
-set mouse=nicr
+set mouse=a
 set noswapfile
 set nowrap
 set rnu
@@ -151,6 +151,9 @@ iab <expr> isod strftime("%Y-%m-%d")
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> isot strftime("%H:%M")
 iab <expr> gtc strftime("# Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
+
+" Enable pane dragging via mouse under Tmux
+set ttymouse=xterm2
 
 " Functions.
 
