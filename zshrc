@@ -33,6 +33,9 @@ alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t ranger/"${
 alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t ranger/"${PWD##*/}" python -m unittest discover /ranger/tests'
 dksh() { docker exec -it $1 bash }
 
+# IPMI work aliases
+alias ipt='ipmitool -I lanplus -H 127.0.0.1 -p 9001 -U admin -P password'
+
 # Free up Ctrl-S and Ctrl-Q for mappings
 stty -ixon -ixoff
 
