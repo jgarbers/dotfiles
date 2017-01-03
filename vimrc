@@ -14,7 +14,7 @@ set guitablabel=%N/\ %t\ %M
 set hidden
 set history=1000
 set laststatus=2
-set mouse=nicr
+set mouse=a
 set noswapfile
 set nowrap
 set rnu
@@ -64,11 +64,24 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'sirver/ultisnips'
+Plugin 'scrooloose/syntastic'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
-Plugin 'honza/vim-snippets'
+
+" Web-dev specific
+" Plugin 'pangloss/vim-javascript'
+" Plugin 'mxw/vim-jsx'
+" let g:jsx_ext_required = 0
+Plugin 'chemzqm/vim-jsx-improve'
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+
+
+" Snippets
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -105,6 +118,9 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :call BufferDelete()<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :call flake8#Flake8()<CR>
+nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
 nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
@@ -132,10 +148,20 @@ let NERDTreeIgnore = ['\.pyc$']
 let NERDTreeHijackNetrw=1
 let NERDTreeMinimalUI=1
 
+" CtrlP options
+ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" Syntastic options
+let g:syntastic_javascript_checkers = ['eslint']
+
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> isot strftime("%H:%M")
+iab <expr> gtc strftime("# Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
+
+" Enable pane dragging via mouse under Tmux
+set ttymouse=xterm2
 
 " Functions.
 
