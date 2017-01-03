@@ -118,7 +118,8 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :call BufferDelete()<CR>
-nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :call flake8#Flake8()<CR>
 nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
