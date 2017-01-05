@@ -69,12 +69,13 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
+Plugin 'Glench/Vim-Jinja2-Syntax'
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
-Plugin 'chemzqm/vim-jsx-improve'
+" Plugin 'chemzqm/vim-jsx-improve'
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
@@ -118,9 +119,10 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
 nnoremap <leader>b :ls<CR>:b 
 nnoremap <leader>d :call BufferDelete()<CR>
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>f :call flake8#Flake8()<CR>
-nnoremap <leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <leader>2 :NERDTreeToggle<CR>
+nnoremap <leader>7 :call flake8#Flake8()<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>5 :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
 nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
