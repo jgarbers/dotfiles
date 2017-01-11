@@ -68,7 +68,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 
 " Python-dev specific
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
+Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
 " Web-dev specific
@@ -121,6 +122,7 @@ nnoremap <leader>b :ls<CR>:b
 nnoremap <leader>d :call BufferDelete()<CR>
 nnoremap <leader>2 :NERDTreeToggle<CR>
 nnoremap <leader>7 :call flake8#Flake8()<CR>
+nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>5 :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^

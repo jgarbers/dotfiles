@@ -28,9 +28,9 @@ alias dcs='docker-compose stop'
 alias dcr='docker-compose restart'
 alias dcl='docker-compose logs'
 alias dps='docker ps -a'
-alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" .'
-alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t ranger/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service ranger/"${PWD##*/}"'
-alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t ranger/"${PWD##*/}" python -m unittest discover /ranger/tests'
+alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" .'
+alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service ranger/"${PWD##*/}"'
+alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t reg.rangerdev.com/"${PWD##*/}" python -m unittest discover /ranger/tests'
 alias dkip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
 dksh() { docker exec -it $1 bash }
