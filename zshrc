@@ -29,7 +29,7 @@ alias dcr='docker-compose restart'
 alias dcl='docker-compose logs'
 alias dps='docker ps -a'
 alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" .'
-alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service ranger/"${PWD##*/}"'
+alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service reg.rangerdev.com/"${PWD##*/}"'
 alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t reg.rangerdev.com/"${PWD##*/}" python -m unittest discover /ranger/tests'
 alias dkip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
 
@@ -59,3 +59,5 @@ unalias rm
 
 # add my local bin and locally-installed Python commands to path
 export PATH=~/bin:$PATH:~/Library/Python/2.7/bin/
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
