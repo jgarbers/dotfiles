@@ -66,11 +66,13 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'kana/vim-arpeggio'
 
 " Python-dev specific
 " Plugin 'nvie/vim-flake8'
 Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
+
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
@@ -95,6 +97,7 @@ set t_Co=256
 highlight Comment cterm=italic
 highlight NonText guifg=#d0d0d0
 highlight SpecialKey guifg=#d0d0d0
+highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 " Prettier tab/EOL chars
 set listchars=tab:▸\ ,eol:¬,trail:·
@@ -129,9 +132,12 @@ nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
 nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
 
-" map <F2> :Lexplore<CR>
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Arpeggio mappings
+call arpeggio#load()
+Arpeggio inoremap jk <Esc>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
