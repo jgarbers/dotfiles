@@ -32,6 +32,7 @@ alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"
 alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service reg.rangerdev.com/"${PWD##*/}"'
 alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t reg.rangerdev.com/"${PWD##*/}" python -m unittest discover /ranger/tests'
 alias dkip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
+alias dpdb='docker exec -it ranger_postgres_1 psql -U admin ranger'
 
 dksh() { docker exec -it $1 bash }
 
