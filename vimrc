@@ -44,6 +44,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set smarttab
 
 " Searching
 set ignorecase
@@ -51,6 +52,8 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+
+packadd! matchit
 
 " Vundle setup.
  set rtp+=~/.vim/bundle/vundle/
@@ -63,10 +66,12 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-arpeggio'
+Plugin 'Chiel92/vim-autoformat'
 
 " Python-dev specific
 " Plugin 'nvie/vim-flake8'
@@ -79,8 +84,8 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 " Plugin 'chemzqm/vim-jsx-improve'
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 
 " Snippets
@@ -127,6 +132,7 @@ nnoremap <leader>2 :NERDTreeToggle<CR>
 nnoremap <leader>7 :call flake8#Flake8()<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>f :Autoformat<CR>
 nnoremap <leader>5 :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
 nnoremap <Leader>c :r ~/.dotfiles/snippets/docstring.txt<CR><C-j>C
