@@ -144,6 +144,7 @@ nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " Arpeggio mappings
 call arpeggio#load()
 Arpeggio inoremap jk <Esc>
+Arpeggio nnoremap nw :res 15%<CR>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
