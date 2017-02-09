@@ -53,8 +53,6 @@ set incsearch
 set showmatch
 set hlsearch
 
-packadd! matchit
-
 " Vundle setup.
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
