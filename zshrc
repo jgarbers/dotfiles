@@ -59,6 +59,6 @@ unalias rm
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # add my local bin and locally-installed Python commands to path
-export PATH=~/bin:$PATH:~/Library/Python/2.7/bin/
+export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
