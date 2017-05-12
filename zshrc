@@ -62,4 +62,10 @@ export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
 # add my local python libraries
 export PYTHONPATH=~/lab/vllib
 
+# and enable virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/lab
+source /usr/local/bin/virtualenvwrapper.sh
+
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
