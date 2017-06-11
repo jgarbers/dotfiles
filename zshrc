@@ -13,7 +13,7 @@ alias v="mvim"
 alias va=". venv/bin/activate"
 alias sshwh='ssh -p 5550 warehouse'
 alias jd='j ~/.dotfiles'
-
+alias tv='terminal_velocity'
 alias trn='tmux rename-window'
 
 # Docker-related aliases
