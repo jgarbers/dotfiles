@@ -70,6 +70,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'tibabit/vim-templates'
 
 " Python-dev specific
 " Plugin 'nvie/vim-flake8'
@@ -168,6 +169,12 @@ let NERDTreeMinimalUI=1
 
 " Syntastic options
 let g:syntastic_javascript_checkers = ['eslint']
+
+" Templates options
+let g:tmpl_company = 'Georgia Institute of Technology'
+let g:tmpl_copyright = 'Copyright (c) 2017 Georgia Tech Research Corporation. All rights reserved.'
+let g:tmpl_author_name = 'Jeff Garbers'
+let g:tmpl_author_email = 'jeff.garbers@venturelab.gatech.edu'
 
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
