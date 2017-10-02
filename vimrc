@@ -66,7 +66,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
@@ -125,7 +126,7 @@ nmap <C-l> <C-w>l
 
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
-nnoremap <leader>b :ls<CR>:b 
+nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :call BufferDelete()<CR>
 nnoremap <leader>2 :NERDTreeToggle<CR>
 nnoremap <leader>7 :call flake8#Flake8()<CR>
@@ -139,6 +140,11 @@ nnoremap <Leader>C :call <SID>ToggleColorColumn()<CR>
 
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+nnoremap <F3> :call MaximizeToggle()<CR>
+nnoremap <C-W>O :call MaximizeToggle()<CR>
+nnoremap <C-W>o :call MaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 " Arpeggio mappings
 call arpeggio#load()
@@ -217,4 +223,22 @@ function! BufferDelete()
             echo "Buffer deleted."
         endif
     endif
+endfunction
+
+""" Maximize toggle.
+
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
 endfunction
