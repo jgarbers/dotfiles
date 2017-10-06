@@ -59,6 +59,9 @@ unalias rm
 # add my local bin and locally-installed Python commands to path
 export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
 
+# add Android ADB to path
+export PATH=$PATH:~/Library/Android/sdk/platform-tools/
+
 # add my local python libraries
 export PYTHONPATH=~/lab/vllib
 
