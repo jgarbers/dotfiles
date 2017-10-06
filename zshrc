@@ -15,6 +15,7 @@ alias sshwh='ssh -p 5550 warehouse'
 alias jd='j ~/.dotfiles'
 alias tv='terminal_velocity'
 alias trn='tmux rename-window'
+alias pdb='python -m pdb'
 
 # Docker-related aliases
 # alias dk='docker'
@@ -50,8 +51,9 @@ bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
 
-# blade guard off rm
+# blade guard off rm and clobbering
 unalias rm
+setopt clobber
 
 # autojump
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
@@ -68,6 +70,7 @@ export PYTHONPATH=~/lab/vllib
 # and enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/lab
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
 source /usr/local/bin/virtualenvwrapper.sh
 
 
