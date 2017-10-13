@@ -12,6 +12,7 @@ alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias v="mvim"
 alias va=". venv/bin/activate"
 alias sshwh='ssh -p 5550 warehouse'
+alias sshpi='ssh pi@vlpi.local'
 alias jd='j ~/.dotfiles'
 alias tv='terminal_velocity'
 alias trn='tmux rename-window'
