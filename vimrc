@@ -80,6 +80,7 @@ Plugin 'tibabit/vim-templates'
 " Plugin 'nvie/vim-flake8'
 Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
+Plugin 'heavenshell/vim-pydocstring'
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
@@ -94,8 +95,12 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " Plugin 'sirver/ultisnips'
 " Plugin 'honza/vim-snippets'
 
-" Ack options
-let g:ackprg = 'ag --vimgrep'
+" Ack options per ag user suggestion
+let g:ackprg = 'ag --vimgrep --smart-case'                                                   
+cnoreabbrev ag Ack                                                                           
+cnoreabbrev aG Ack                                                                           
+cnoreabbrev Ag Ack                                                                           
+cnoreabbrev AG Ack  
 
 " Appearance
 let g:airline_powerline_fonts=1
