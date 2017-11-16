@@ -65,9 +65,6 @@ export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
 # add Android ADB to path
 export PATH=$PATH:~/Library/Android/sdk/platform-tools/
 
-# add my local python libraries
-export PYTHONPATH=~/lab/vllib
-
 # and enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/lab
