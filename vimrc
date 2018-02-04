@@ -64,14 +64,17 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-surround'
 Plugin 'scrooloose/nerdtree'
-" Plugin 'scrooloose/syntastic'
+Plugin 'mileszs/ack.vim'
 Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tibabit/vim-templates'
+" Plugin 'tpope/vim-surround'
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-notes'
+" Plugin 'scrooloose/syntastic'
 
 " Python-dev specific
 " Plugin 'nvie/vim-flake8'
@@ -93,6 +96,9 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " Snippets
 " Plugin 'sirver/ultisnips'
 " Plugin 'honza/vim-snippets'
+
+" Ack options
+let g:ackprg = 'ag --vimgrep'
 
 " Appearance
 let g:airline_powerline_fonts=1
