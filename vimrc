@@ -78,6 +78,8 @@ Plugin 'tibabit/vim-templates'
 Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
+" Go-dev specific
+Plugin 'fatih/vim-go'
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'

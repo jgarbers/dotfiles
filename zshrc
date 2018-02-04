@@ -64,6 +64,9 @@ export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
 # add Android ADB to path
 export PATH=$PATH:~/Library/Android/sdk/platform-tools/
 
+# add PlatformIO to path
+export PATH=$PATH:~/.platformio/penv/bin
+
 # add my local python libraries
 export PYTHONPATH=~/lab/vllib
 
