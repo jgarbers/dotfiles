@@ -84,6 +84,9 @@ Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'heavenshell/vim-pydocstring'
 
+" Go-dev specific
+Plugin 'fatih/vim-go'
+
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'

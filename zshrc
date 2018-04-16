@@ -57,6 +57,12 @@ export PATH=~/bin:/usr/local/opt/python@2/bin:$PATH
 # add Android ADB to path
 export PATH=$PATH:~/Library/Android/sdk/platform-tools
 
+# add PlatformIO to path
+export PATH=$PATH:~/.platformio/penv/bin
+
+# add my local python libraries
+export PYTHONPATH=~/lab/vllib
+
 # and enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/lab
