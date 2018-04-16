@@ -14,9 +14,9 @@ alias va=". venv/bin/activate"
 alias sshwh='ssh -p 5550 warehouse'
 alias sshpi='ssh pi@vlpi.local'
 alias jd='j ~/.dotfiles'
-alias tv='terminal_velocity'
 alias trn='tmux rename-window'
 alias pdb='python -m pdb'
+alias gst='git status'
 
 # Docker-related aliases
 # alias dk='docker'
@@ -28,16 +28,7 @@ alias pdb='python -m pdb'
 # alias dcr='docker-compose restart'
 # alias dcl='docker-compose logs'
 # alias dps='docker ps -a'
-# alias dkbi='echo Rebuilding "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" .'
-# alias dkr='echo Running solo service "${PWD##*/}" &&  docker build -t reg.rangerdev.com/"${PWD##*/}" . && docker run -p 5000:5000 -v ${PWD}/service:/ranger/service reg.rangerdev.com/"${PWD##*/}"'
-# alias dkrt='echo Running tests for "${PWD##*/}" &&  docker run -t reg.rangerdev.com/"${PWD##*/}" python -m unittest discover /ranger/tests'
-# alias dkip='docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}"'
-# alias dpdb='docker exec -it ranger_postgres_1 psql -U admin ranger'
-
 # dksh() { docker exec -it $1 bash }
-
-# IPMI work aliases
-# alias ipt='ipmitool -I lanplus -H 127.0.0.1 -p 9001 -U admin -P password'
 
 # Free up Ctrl-S and Ctrl-Q for mappings
 stty -ixon -ixoff
@@ -60,16 +51,20 @@ setopt clobber
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 # add my local bin and locally-installed Python commands to path
-export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
+# export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
+export PATH=~/bin:/usr/local/opt/python@2/bin:$PATH
 
 # add Android ADB to path
-export PATH=$PATH:~/Library/Android/sdk/platform-tools/
+export PATH=$PATH:~/Library/Android/sdk/platform-tools
 
 # and enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/lab
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@2/bin/python2
 source /usr/local/bin/virtualenvwrapper.sh
 
+# VL account info
+export VL_ACCOUNTS=$HOME/lab/vlocity/instance/accounts.csv
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

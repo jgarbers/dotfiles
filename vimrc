@@ -64,6 +64,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'mileszs/ack.vim'
 Plugin 'w0rp/ale'
@@ -80,7 +82,7 @@ Plugin 'tibabit/vim-templates'
 " Plugin 'nvie/vim-flake8'
 Plugin 'andviro/flake8-vim'
 Plugin 'Glench/Vim-Jinja2-Syntax'
-Plugin 'heavenshell/vim-pydocstring'
+" Plugin 'heavenshell/vim-pydocstring'
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
@@ -188,7 +190,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Templates options
 let g:tmpl_company = 'Georgia Institute of Technology'
-let g:tmpl_copyright = 'Copyright (c) 2017 Georgia Tech Research Corporation. All rights reserved.'
+let g:tmpl_copyright = strftime("Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
 let g:tmpl_author_name = 'Jeff Garbers'
 let g:tmpl_author_email = 'jeff.garbers@venturelab.gatech.edu'
 
@@ -199,7 +201,9 @@ iab <expr> isot strftime("%H:%M")
 iab <expr> gtc strftime("# Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
 
 " Enable pane dragging via mouse under Tmux
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 " Functions.
 
