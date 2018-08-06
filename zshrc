@@ -17,6 +17,13 @@ alias jd='j ~/.dotfiles'
 alias trn='tmux rename-window'
 alias pdb='python -m pdb'
 alias gst='git status'
+alias r='ranger'
+
+# SFDX-related aliases
+alias sfo='sfdx force:org:open'
+alias sfop='sfdx force:org:open --path /lightning/n/LexNewTeamPage'
+alias sfpush='sfdx force:source:push'
+alias sfpull='sfdx force:source:pull'
 
 # Docker-related aliases
 # alias dk='docker'
