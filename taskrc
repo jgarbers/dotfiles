@@ -30,7 +30,7 @@ include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
 taskd.server=freecinc.com:53589
-taskd.key=\/Users\/jeffgarbers\/.task\/freecinc_a0879516.key.pem
-taskd.certificate=\/Users\/jeffgarbers\/.task\/freecinc_a0879516.cert.pem
-taskd.ca=\/Users\/jeffgarbers\/.task\/freecinc_a0879516.ca.pem
+taskd.key=~\/.task\/freecinc_a0879516.key.pem
+taskd.certificate=~\/.task\/freecinc_a0879516.cert.pem
+taskd.ca=~\/.task\/freecinc_a0879516.ca.pem
 taskd.credentials=FreeCinc\/freecinc_a0879516\/c9d50481-88f1-4d75-95bd-65de78ba3732
