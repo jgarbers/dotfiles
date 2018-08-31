@@ -20,10 +20,13 @@ alias gst='git status'
 alias r='ranger'
 
 # SFDX-related aliases
+alias sfol='sfdx force:org:list'
+alias sfpl='sfdx force:package:list'
 alias sfo='sfdx force:org:open'
 alias sfop='sfdx force:org:open --path /lightning/n/LexNewTeamPage'
 alias sfpush='sfdx force:source:push'
 alias sfpull='sfdx force:source:pull'
+alias sfstat='sfdx force:source:status'
 
 # Docker-related aliases
 # alias dk='docker'

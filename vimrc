@@ -67,14 +67,17 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
-Plugin 'mileszs/ack.vim'
+Plugin 'justinmk/vim-sneak'
+Plugin 'easymotion/vim-easymotion'
+" Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tibabit/vim-templates'
 Plugin 'neowit/vim-force.com'
-Plugin 'farseer90718/vim-taskwarrior'
+" Plugin 'farseer90718/vim-taskwarrior'
 " Plugin 'tpope/vim-surround'
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-notes'
@@ -87,13 +90,14 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'heavenshell/vim-pydocstring'
 
 " Go-dev specific
-Plugin 'fatih/vim-go'
+" Plugin 'fatih/vim-go'
 
 " Web-dev specific
 " Plugin 'pangloss/vim-javascript'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 " Plugin 'chemzqm/vim-jsx-improve'
+
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
@@ -101,13 +105,6 @@ autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 " Snippets
 " Plugin 'sirver/ultisnips'
 " Plugin 'honza/vim-snippets'
-
-" Ack options per ag user suggestion
-let g:ackprg = 'ag --vimgrep --smart-case'                                                   
-cnoreabbrev ag Ack                                                                           
-cnoreabbrev aG Ack                                                                           
-cnoreabbrev Ag Ack                                                                           
-cnoreabbrev AG Ack  
 
 " Appearance
 let g:airline_powerline_fonts=1
