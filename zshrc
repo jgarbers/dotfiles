@@ -70,8 +70,9 @@ export PATH=$PATH:~/Library/Android/sdk/platform-tools
 # add PlatformIO to path
 export PATH=$PATH:~/.platformio/penv/bin
 
-# add my local python libraries
+# add my local python libraries and encode with UTF-8
 export PYTHONPATH=~/lab/vllib
+export PYTHONIOENCODING=UTF-8
 
 # and enable virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
