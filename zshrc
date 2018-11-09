@@ -28,6 +28,10 @@ alias sfpush='sfdx force:source:push'
 alias sfpull='sfdx force:source:pull'
 alias sfstat='sfdx force:source:status'
 
+# Taskwarrior-related aliases
+alias ta='task add'
+alias ts='task sync'
+
 # Docker-related aliases
 # alias dk='docker'
 # alias denv='eval "$(docker-machine env default)"'
