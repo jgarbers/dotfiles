@@ -9,15 +9,15 @@ fi
 
 alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias v="mvim"
+alias v="vi"
 alias va=". venv/bin/activate"
 alias sshwh='ssh -p 5550 warehouse'
 alias sshpi='ssh pi@vlpi.local'
 alias jd='j ~/.dotfiles'
 alias trn='tmux rename-window'
-alias pdb='python -m pdb'
 alias gst='git status'
 alias r='ranger'
+alias sshpibot='ssh pi@pibot.local'
 
 # SFDX-related aliases
 alias sfol='sfdx force:org:list'
@@ -87,5 +87,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # VL account info
 export VL_ACCOUNTS=$HOME/lab/vlocity/instance/accounts.csv
+
+# Theme thing
+export POWERLEVEL9K_MODE='nerdfont-complete'
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

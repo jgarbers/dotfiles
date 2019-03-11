@@ -74,7 +74,6 @@ Plugin 'scrooloose/nerdtree'
 " Plugin 'mileszs/ack.vim'
 " Plugin 'rking/ag.vim'
 " Plugin 'w0rp/ale'
-Plugin 'ctrlpvim/ctrlp.vim'
 " Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tibabit/vim-templates'
@@ -101,6 +100,7 @@ Plugin 'andviro/flake8-vim'
 " Plugin 'chemzqm/vim-jsx-improve'
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 
