@@ -63,22 +63,23 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
+Plugin 'jgdavey/tslime.vim'
 " Plugin 'tpope/vim-unimpaired'
 " Plugin 'tpope/vim-obsession'
 " Plugin 'tpope/vim-fugitive'
 " Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdtree'
-Plugin 'justinmk/vim-sneak'
+" Plugin 'justinmk/vim-sneak'
 " Plugin 'easymotion/vim-easymotion'
 " Plugin 'mileszs/ack.vim'
-Plugin 'rking/ag.vim'
-Plugin 'w0rp/ale'
+" Plugin 'rking/ag.vim'
+" Plugin 'w0rp/ale'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'kana/vim-arpeggio'
+" Plugin 'kana/vim-arpeggio'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'tibabit/vim-templates'
 " Plugin 'neowit/vim-force.com'
-Plugin 'farseer90718/vim-taskwarrior'
+" Plugin 'farseer90718/vim-taskwarrior'
 " Plugin 'tpope/vim-surround'
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-notes'
@@ -87,7 +88,7 @@ Plugin 'farseer90718/vim-taskwarrior'
 " Python-dev specific
 " Plugin 'nvie/vim-flake8'
 Plugin 'andviro/flake8-vim'
-Plugin 'Glench/Vim-Jinja2-Syntax'
+" Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'heavenshell/vim-pydocstring'
 
 " Go-dev specific
@@ -162,9 +163,10 @@ nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 " Arpeggio mappings
-call arpeggio#load()
-Arpeggio inoremap jk <Esc>
-Arpeggio nnoremap nw :res 15%<CR>
+" call arpeggio#load()
+" Arpeggio inoremap jk <Esc>
+" Arpeggio nnoremap nw :res 15%<CR>
+" Arpeggio nnoremap nm :res 85%<CR>
 
 " Exit insert mode when switching away
 au FocusLost * call feedkeys("\<C-\>\<C-n>")
@@ -181,7 +183,7 @@ let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 " NERDTree options
 let NERDTreeMapOpenVSplit="<C-v>"
 let NERDTreeMapOpenSplit="<C-s>"
-let NERDTreeIgnore = ['\.pyc$']
+let NERDTreeIgnore = ['\.pyc$', '^__pycache__$']
 let NERDTreeHijackNetrw=1
 let NERDTreeMinimalUI=1
 
