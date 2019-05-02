@@ -82,7 +82,8 @@ export PYTHONIOENCODING=UTF-8
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/lab
 # export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@2/bin/python2
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@2/bin/python2
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
 # VL account info

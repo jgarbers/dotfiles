@@ -1,0 +1,4 @@
+
+redefine_color "CYAN" 300 524 576
+
+color "type=HEADINGS fg=WHITE bg=CYAN"

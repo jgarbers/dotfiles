@@ -29,6 +29,10 @@ include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
 # include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
 
+# Color overrides
+color.alternate=
+
+# Sync
 taskd.server=freecinc.com:53589
 taskd.key=~\/.task\/freecinc_a0879516.key.pem
 taskd.certificate=~\/.task\/freecinc_a0879516.cert.pem
