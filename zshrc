@@ -7,10 +7,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-alias v="vi"
-alias va=". venv/bin/activate"
+# alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
+# alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+alias vi=nvim
 alias sshwh='ssh -p 5550 warehouse'
 alias sshpi='ssh pi@vlpi.local'
 alias jd='j ~/.dotfiles'
@@ -18,6 +17,9 @@ alias trn='tmux rename-window'
 alias gst='git status'
 alias r='ranger'
 alias sshpibot='ssh pi@pibot.local'
+alias pvr='pipenv run'
+alias pvp='pipenv run python'
+alias todo="ag --color-line-number '1;36' --color-path '1;36' --ignore-case --print-long-lines --silent '(?:<!-- *)?(?:#|//|/\*+|<!--|--) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)(?:\([^(]+\))?:?(?!\w)(?: *-->| *\*/|(?= *(?:[^:]//|/\*+|<!--|@|--))|((?: +[^\n@]*?)(?= *(?:[^:]//|/\*+|<!--|@|--))|(?: +[^@\n]+)?))'"
 
 # SFDX-related aliases
 alias sfol='sfdx force:org:list'
@@ -91,5 +93,12 @@ export VL_ACCOUNTS=$HOME/lab/vlocity/instance/accounts.csv
 
 # Theme thing
 export POWERLEVEL9K_MODE='nerdfont-complete'
+
+# Pyenv.
+# export PATH="$HOME/.pyenv/bin:$PATH"
+export PYENV_ROOT=~/.pyenv
+eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
