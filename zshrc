@@ -68,13 +68,16 @@ setopt clobber
 
 # add my local bin and locally-installed Python commands to path
 # export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
-export PATH=~/bin:/usr/local/opt/python@2/bin:$PATH
-
+export PATH=~/bin:/usr/local/opt/python@2/bin:~/Library/Python/3.7/bin/:$PATH
+#
 # add Android ADB to path
-export PATH=$PATH:~/Library/Android/sdk/platform-tools
+# export PATH=$PATH:~/Library/Android/sdk/platform-tools
 
 # add PlatformIO to path
 export PATH=$PATH:~/.platformio/penv/bin
+
+# add Go tools to path
+export PATH=$PATH:~/go/bin
 
 # add my local python libraries and encode with UTF-8
 export PYTHONPATH=~/lab/vllib
