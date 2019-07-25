@@ -86,8 +86,8 @@ Plugin 'tibabit/vim-templates'
 " Plugin 'scrooloose/syntastic'
 
 " Python-dev specific
-" Plugin 'nvie/vim-flake8'
-Plugin 'andviro/flake8-vim'
+Plugin 'nvie/vim-flake8'
+" Plugin 'andviro/flake8-vim'
 " Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'heavenshell/vim-pydocstring'
 
@@ -104,6 +104,7 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+autocmd BufWritePost *.py call flake8#Flake8()
 
 " Snippets
 " Plugin 'sirver/ultisnips'
