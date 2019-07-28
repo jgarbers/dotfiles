@@ -3,7 +3,7 @@
 " This is a more minimal config; let's see if we can clean things up.
 "
 syntax enable
-filetype plugin indent on
+filetype off
 
 set nocompatible
 set autoread
@@ -61,10 +61,11 @@ set hlsearch
 Plugin 'gmarik/vundle'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-commentary'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'kien/ctrlp.vim'
+Plugin 'PProvost/vim-ps1'
 " Plugin 'tpope/vim-unimpaired'
 " Plugin 'tpope/vim-obsession'
 " Plugin 'tpope/vim-fugitive'
@@ -99,6 +100,8 @@ Plugin 'nvie/vim-flake8'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 " Plugin 'chemzqm/vim-jsx-improve'
+
+filetype plugin indent on
 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
