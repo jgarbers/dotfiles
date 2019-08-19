@@ -73,7 +73,7 @@ Plugin 'PProvost/vim-ps1'
 Plugin 'scrooloose/nerdtree'
 " Plugin 'justinmk/vim-sneak'
 " Plugin 'easymotion/vim-easymotion'
-" Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 " Plugin 'rking/ag.vim'
 " Plugin 'w0rp/ale'
 " Plugin 'kana/vim-arpeggio'
@@ -100,6 +100,7 @@ Plugin 'nvie/vim-flake8'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 " Plugin 'chemzqm/vim-jsx-improve'
+Plugin 'sirtaj/vim-openscad'
 
 filetype plugin indent on
 
@@ -108,10 +109,6 @@ autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 autocmd BufWritePost *.py call flake8#Flake8()
-
-" Snippets
-" Plugin 'sirver/ultisnips'
-" Plugin 'honza/vim-snippets'
 
 " Appearance
 let g:airline_powerline_fonts=1
@@ -147,12 +144,14 @@ nmap <C-l> <C-w>l
 
 nnoremap <leader><space> :noh<CR>
 nnoremap <leader>x ^iOK <Esc>j^
+nnoremap <leader>a :Ack 
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :call BufferDelete()<CR>
 nnoremap <leader>2 :NERDTreeToggle<CR>
 nnoremap <leader>7 :call flake8#Flake8()<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
+nnoremap <leader>r :Tmux ./run<CR>
 nnoremap <leader>f :Autoformat<CR>
 nnoremap <leader>5 :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
@@ -195,6 +194,9 @@ let NERDTreeMinimalUI=1
 " CtrlP options
  let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+" Ack options
+let g:ackprg = 'ag --vimgrep'
+
 " Syntastic options
 let g:syntastic_javascript_checkers = ['eslint']
 
@@ -203,6 +205,10 @@ let g:tmpl_company = 'Georgia Institute of Technology'
 let g:tmpl_copyright = strftime("Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
 let g:tmpl_author_name = 'Jeff Garbers'
 let g:tmpl_author_email = 'jeff.garbers@venturelab.gatech.edu'
+
+" Tslime options.
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
 
 " Abbreviations.
 iab <expr> isod strftime("%Y-%m-%d")
