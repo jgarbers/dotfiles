@@ -86,6 +86,8 @@ Plugin 'tibabit/vim-templates'
 " Plugin 'xolox/vim-notes'
 " Plugin 'scrooloose/syntastic'
 
+" Plugin 'rhysd/vim-clang-format'
+
 " Python-dev specific
 Plugin 'nvie/vim-flake8'
 " Plugin 'andviro/flake8-vim'
@@ -100,7 +102,9 @@ Plugin 'nvie/vim-flake8'
 " Plugin 'mxw/vim-jsx'
 " let g:jsx_ext_required = 0
 " Plugin 'chemzqm/vim-jsx-improve'
-Plugin 'sirtaj/vim-openscad'
+" Plugin 'sirtaj/vim-openscad'
+
+" Plugin 'dart-lang/dart-vim-plugin'
 
 filetype plugin indent on
 
@@ -151,7 +155,7 @@ nnoremap <leader>2 :NERDTreeToggle<CR>
 nnoremap <leader>7 :call flake8#Flake8()<CR>
 nnoremap <leader>q :q<CR>
 nnoremap <leader>w :w<CR>
-nnoremap <leader>r :Tmux ./run<CR>
+nnoremap <leader>r :w<CR>:Tmux ./run<CR>
 nnoremap <leader>f :Autoformat<CR>
 nnoremap <leader>5 :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 nnoremap <leader>X ^iNO <Esc>j^
