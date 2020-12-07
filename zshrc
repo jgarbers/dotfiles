@@ -3,23 +3,27 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+#   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+# fi
 
-# alias vi="/Applications/MacVim.app/Contents/MacOS/Vim"
-# alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+# PROMPT=$'%(?.%F{green}√.%F{red}\U2718)%f %B%F{33}%4~%f%b %# '
+PROMPT=$'%f%B%F{33}%4~%f%b %# '
+#
 alias vi=nvim
 alias sshwh='ssh -p 5550 warehouse'
-alias sshpi='ssh pi@vlpi.local'
-alias jd='j ~/.dotfiles'
+alias jd='cd ~/.dotfiles'
 alias trn='tmux rename-window'
 alias gst='git status'
+alias nav='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias r='ranger'
-alias sshpibot='ssh pi@pibot.local'
 alias pvr='pipenv run'
 alias pvp='pipenv run python'
+alias ppl='pipes --list --verbose'
+alias cinit='INIT=~/bin/conda-init ; source "$INIT" ; CENV="$(basename "$PWD")" ; echo Activating conda environment $CENV ; conda activate $CENV'
+
 alias todo="ag --color-line-number '1;36' --color-path '1;36' --ignore-case --print-long-lines --silent '(?:<!-- *)?(?:#|//|/\*+|<!--|--) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)(?:\([^(]+\))?:?(?!\w)(?: *-->| *\*/|(?= *(?:[^:]//|/\*+|<!--|@|--))|((?: +[^\n@]*?)(?= *(?:[^:]//|/\*+|<!--|@|--))|(?: +[^@\n]+)?))'"
+alias utc='date -u'
 
 # SFDX-related aliases
 alias sfol='sfdx force:org:list'
@@ -30,9 +34,15 @@ alias sfpush='sfdx force:source:push'
 alias sfpull='sfdx force:source:pull'
 alias sfstat='sfdx force:source:status'
 
-# Taskwarrior-related aliases
-alias ta='task add'
-alias ts='task sync'
+# Change to lab dir and set window title
+cld () {
+    cd ~/lab/$1 ; tmux rename-window $1
+}
+
+# Change to project root dir and maybe one in
+cdp () {
+    cd `git rev-parse --show-toplevel`/$1
+}
 
 # Docker-related aliases
 # alias dk='docker'
@@ -53,6 +63,8 @@ stty -ixon -ixoff
 export EDITOR="vim"
 bindkey -v 
 
+export CLICOLOR=1
+
 # vi style incremental search
 bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
@@ -60,57 +72,68 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
 
 # blade guard off rm and clobbering
-unalias rm
+# unalias rm
 setopt clobber
 
-# autojump
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# twf integration.
+alias cv='cd $(twf)'
+twf-widget() {
+  local selected=$(twf --height=0.5)
+  BUFFER="$BUFFER$selected"
+  zle reset-prompt
+  zle end-of-line
+  return $ret
+}
+zle -N twf-widget
+bindkey '^V' twf-widget
 
 # add my local bin and locally-installed Python commands to path
-# export PATH=~/bin:$PATH:~/Library/Python/2.7/bin
-export PATH=~/bin:/usr/local/opt/python@2/bin:~/Library/Python/3.7/bin/:$PATH
-#
-# add Android ADB to path
-# export PATH=$PATH:~/Library/Android/sdk/platform-tools
-
-# add PlatformIO to path
-export PATH=$PATH:~/.platformio/penv/bin
+path+=('~/bin' '/Users/jeffgarbers/Library/Python/3.7/bin' $path)
 
 # add Go tools to path
 export PATH=$PATH:~/go/bin
+
+# add pip --user tools to path
+export PATH=$PATH:~/.local/bin
 
 # add my local python libraries and encode with UTF-8
 export PYTHONPATH=~/lab/vllib
 export PYTHONIOENCODING=UTF-8
 
 # and enable virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/lab
-# export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/opt/python@2/bin/python2
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+export PIPENV_IGNORE_VIRTUALENVS=1
 
 # VL account info
 export VL_ACCOUNTS=$HOME/lab/vlocity/instance/accounts.csv
 
 # Theme thing
-export POWERLEVEL9K_MODE='nerdfont-complete'
+# export POWERLEVEL9K_MODE='nerdfont-complete'
+
+# FZF options
+export FZF_DEFAULT_OPTS='--preview "bat --color always {}" --bind ctrl-a:select-all'
+
+# Essentials.
+export COWPATH=$HOME/.cowsay
 
 # Pyenv.
 # export PATH="$HOME/.pyenv/bin:$PATH"
 export PYENV_ROOT=~/.pyenv
 eval "$(pyenv init -)"
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
-export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
-
+# export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 
 # C++ dev
-export CPLUS_INCLUDE_PATH=/usr/local/include
-export LIBRARY_PATH=/usr/local/lib
-
-
-
-
+# export CPLUS_INCLUDE_PATH=/usr/local/include
+# export LIBRARY_PATH=/usr/local/lib
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Clean up path
+typeset -U path
+
+# Enable fzf fuzzy finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Enable 'z' directory changing
+source /usr/local/etc/profile.d/z.sh
+
