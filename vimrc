@@ -16,17 +16,28 @@
 " 	tpope/vim-commentary : commenting/uncommenting code blocks
 "   preservim/tagbar: ctags display
 " 	ronakg/quickr-cscope: cscope bindings and quickfix management
+" 	sirver/ultisnips: snippet manager
+" 	dbakker/vim-projectroot: easy access to project root directory
 "
 " On probation:
-" 	sheerun/vim-polyglot: multilanguage syntax highlighting
 " 	tpope/vim-unimpaired : pairwise motions, etc.
 "
 
 " Appearance.
+
+" Highlight overrides
+function! MyHighlights() abort
+    highlight Comment cterm=italic
+    highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+
 colorscheme solarized
 set listchars=tab:▸\ ,eol:¬,trail:·
-highlight Comment cterm=italic
-highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
 
 "" Tabstops
 set tabstop=4
@@ -64,8 +75,8 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Buffer nav with tab/shift-tab
-nnoremap <Tab> :bprev<CR>
-nnoremap <S-Tab> :bnext<CR>
+" nnoremap <Tab> :bprev<CR>
+" nnoremap <S-Tab> :bnext<CR>
 
 " Open netrw in project root.
 nnoremap <expr> _ ':edit '.projectroot#guess().'/<CR>'
@@ -74,6 +85,9 @@ nnoremap <expr> <F2> ':20Lexplore '.projectroot#guess().'/<CR>'
 " Write file
 nnoremap <leader>w :w<CR>
 
+" Close buffer, leaving window
+nnoremap <leader>c :bp\|bd #<CR>
+
 " Clear search term highlight
 nnoremap <leader><space> :noh<CR>
 
@@ -81,7 +95,7 @@ nnoremap <leader><space> :noh<CR>
 nnoremap <leader>f :20Lexplore<CR>
 
 " Freed <C-l> in Netrw
-nmap <leader><leader><leader><leader><leader><leader>l <Plug>NetrwRefresh
+nmap <leader>l <Plug>NetrwRefresh
 
 " Load notes
 nnoremap <leader>n :ProjectRootExe edit docs/notes.md<CR>'.
@@ -118,10 +132,17 @@ let $FZF_DEFAULT_OPTS = '--bind ctrl-l:select-all'
 nmap <leader>s <plug>(quickr_cscope_symbols)
 
 " ######################################################################## 
+"  Snippet-related
+" ######################################################################## 
+let g:ultisnips_python_style="sphinx"
+
+" ######################################################################## 
 "  Abbreviations
 " ######################################################################## 
 
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
+iab <expr> ddt strftime("%A %b %d, %Y %T %Z")
+iab ddp print(f"*** HEY")<C-o>F"
 
 " ######################################################################## 
 "  Special handling for selected file types.
