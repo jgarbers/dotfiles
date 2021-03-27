@@ -1,4 +1,4 @@
-" My working vimrc
+"rk My working vimrc
 " 
 " Trying to reduce overhead and increase speed, I'm dropping as many plugins
 " and options as possible, and building back up with must-haves.
@@ -29,6 +29,7 @@
 function! MyHighlights() abort
     highlight Comment cterm=italic
     highlight MatchParen cterm=bold ctermbg=none ctermfg=magenta
+    highlight link markdownItalic Normal
 endfunction
 
 augroup MyColors
@@ -220,6 +221,7 @@ autocmd FileType json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType jinja.html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " ######################################################################## 
 "  Custom functions

@@ -44,6 +44,11 @@ cdp () {
     cd `git rev-parse --show-toplevel`/$1
 }
 
+# Pretty dump JSON.
+jj () {
+    underscore pretty --in $1 | less
+}
+
 # Current project aliases.
 alias sbp='source bin/prep.sh'
 
@@ -108,6 +113,13 @@ export PATH=$PATH:~/.local/bin
 # add my own tools to path
 export PATH=$PATH:~/bin
 
+# add bash-my-aws tools to path and load aliases
+export PATH=$PATH:~/.bash-my-aws/bin
+source ~/.bash-my-aws/aliases
+autoload -U +X compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+source ~/.bash-my-aws/bash_completion.sh
+
 # add my local python libraries and encode with UTF-8
 export PYTHONPATH=~/lab/vllib
 export PYTHONIOENCODING=UTF-8
@@ -122,7 +134,7 @@ export VL_ACCOUNTS=$HOME/lab/vlocity/instance/accounts.csv
 # export POWERLEVEL9K_MODE='nerdfont-complete'
 
 # FZF options
-export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_COMMAND='fd --no-ignore --type f'
 export FZF_DEFAULT_OPTS='--preview "bat --color always {}" --bind ctrl-a:select-all'
 
 # Essentials.
