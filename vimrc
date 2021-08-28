@@ -1,4 +1,4 @@
-"rk My working vimrc
+" My working vimrc
 " 
 " Trying to reduce overhead and increase speed, I'm dropping as many plugins
 " and options as possible, and building back up with must-haves.
@@ -10,7 +10,6 @@
 " 	tpope/vim-sensible: sensible defaults
 "
 " 	vim-syntastic/syntastic: multilanguage syntax checking
-" 	mileszs/ack.vim: fast search in files
 " 	junegunn/fzf.vim: FZF-based fuzzy finder
 "   tpope/vim-vinegar: netrw enhancement
 " 	tpope/vim-commentary : commenting/uncommenting code blocks
@@ -18,6 +17,8 @@
 " 	ronakg/quickr-cscope: cscope bindings and quickfix management
 " 	sirver/ultisnips: snippet manager
 " 	dbakker/vim-projectroot: easy access to project root directory
+" 	editorconfig/editorconfig-vim: support EditorConfig protocol
+"   justinmk/vim-sneak: rapid motion
 "
 " On probation:
 " 	tpope/vim-unimpaired : pairwise motions, etc.
@@ -65,6 +66,8 @@ set mouse=a
 " Allow hidden buffers.
 set hidden
 
+set statusline=%y\ %F\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
+
 " ######################################################################## 
 "  Key mappings.
 " ######################################################################## 
@@ -76,8 +79,8 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " Buffer nav with tab/shift-tab
-" nnoremap <Tab> :bprev<CR>
-" nnoremap <S-Tab> :bnext<CR>
+nnoremap <Tab> :bprev<CR>
+nnoremap <S-Tab> :bnext<CR>
 
 " Open netrw in project root.
 nnoremap <expr> _ ':edit '.projectroot#guess().'/<CR>'
@@ -99,13 +102,25 @@ nnoremap <leader>f :20Lexplore<CR>
 nmap <leader>l <Plug>NetrwRefresh
 
 " Load notes
-nnoremap <leader>n :ProjectRootExe edit docs/notes.md<CR>'.
+nnoremap <leader>n :ProjectRootExe edit docs/notes.md<CR>:set wfh<CR>'.
+
+" Load notes and split
+nnoremap <leader>N :ProjectRootExe edit docs/notes.md<CR>'.:set wfh<CR><C-W>s<C-W>20+:ProjectRootExe edit .<CR><C-W>j
 
 " Toggle right tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 
+" Toggle Syntastic check
+nnoremap <leader>S :SyntasticToggleMode<CR>
+
 " Toggle quickfix
 nnoremap <leader>q :call ToggleQuickFix()<CR>
+
+" Update copyright
+nnoremap <leader>C :call UpdateCopyright()<CR>
+
+" Black reformat
+nnoremap <leader>B :call black#Black()<CR>
 
 " Open twf
 nnoremap <leader>e :call Twf()<CR>
@@ -130,6 +145,7 @@ endfunction
 let $FZF_DEFAULT_OPTS = '--bind ctrl-l:select-all'
 
 " quickr_cscope mappings; we use a subset
+let g:quickr_cscope_keymaps = 0
 nmap <leader>s <plug>(quickr_cscope_symbols)
 
 " ######################################################################## 
@@ -144,7 +160,8 @@ let g:ultisnips_python_style="sphinx"
 iab <expr> ddln strftime("------------------------------------------------------------------------<CR>%Y-%m-%d")
 iab <expr> ddt strftime("%A %b %d, %Y %T %Z")
 iab ddp print(f"*** HEY")<C-o>F"
-
+iab <expr> gtc strftime("# Copyright (c) %Y Georgia Tech Research Corporation. All rights reserved.")
+"
 " ######################################################################## 
 "  Special handling for selected file types.
 " ######################################################################## 
@@ -179,7 +196,7 @@ autocmd FileType netrw setl bufhidden=delete
 autocmd FileType netrw nnoremap ? :help netrw-quickmap<CR>
 let g:netrw_keepdir=0
 let g:netrw_altv=1
-let g:netrw_winsize = 30
+let g:netrw_winsize = 80
 
 " ------------------------------------------------------------------------ 
 "  Syntastic
@@ -188,10 +205,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_rst_checkers=['sphinx']
+let g:syntastic_sh_shellcheck_args="-x -P SCRIPTDIR"
 
 let g:syntastic_html_tidy_ignore_errors = [
   \'proprietary attribute "required',
@@ -200,7 +217,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 
 let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "passive_filetypes": ["jinja"] }
+    \ "passive_filetypes": ["jinja", "rst"] }
 
 
 " ------------------------------------------------------------------------ 
@@ -210,6 +227,9 @@ let g:syntastic_mode_map = {
 " that doesn't really follow Markdown rules.
 let g:polyglot_disabled = ['markdown']
 
+" ------------------------------------------------------------------------ 
+" Jedi
+let g:jedi#completions_command = "<C-N>"
 
 " ######################################################################## 
 "  Language specific options
@@ -256,5 +276,10 @@ function! ToggleQuickFix()
     else
         cclose
     endif
+endfunction
+
+" Update copyright
+function! UpdateCopyright()
+    exe "g#\\cCopyright \(c\) \\(".strftime("%Y")."\\)\\@![0-9]\\{4\\}\\(-".strftime("%Y")."\\)\\@!#s#\\([0-9]\\{4\\}\\)\\(-[0-9]\\{4\\}\\)\\?#\\1-".strftime("%Y") |
 endfunction
 

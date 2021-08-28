@@ -15,15 +15,19 @@ alias sshwh='ssh -p 5550 warehouse'
 alias jd='cd ~/.dotfiles'
 alias trn='tmux rename-window'
 alias swn='tmux rename-window `basename $PWD`'
+alias swnt='tmux select-pane -T '
 alias gst='git status'
-alias nav='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
-alias r='ranger'
 alias pvr='pipenv run'
 alias pvp='pipenv run python'
 alias cinit='INIT=~/bin/conda-init ; source "$INIT" ; CENV="$(basename "$PWD")" ; echo Activating conda environment $CENV ; conda activate $CENV'
 
 alias todo="ag --color-line-number '1;36' --color-path '1;36' --ignore-case --print-long-lines --silent '(?:<!-- *)?(?:#|//|/\*+|<!--|--) *(TODO|FIXME|FIX|BUG|UGLY|HACK|NOTE|IDEA|REVIEW|DEBUG|OPTIMIZE)(?:\([^(]+\))?:?(?!\w)(?: *-->| *\*/|(?= *(?:[^:]//|/\*+|<!--|@|--))|((?: +[^\n@]*?)(?= *(?:[^:]//|/\*+|<!--|@|--))|(?: +[^@\n]+)?))'"
 alias utc='date -u'
+alias elc='history -1 | cut -c 8-'
+alias va='source .venv/bin/activate'
+
+# Add vllib to PYTHONPATH
+alias ppvl='export PYTHONPATH=~/lab/vllib:$PYTHONPATH'
 
 # SFDX-related aliases
 # alias sfol='sfdx force:org:list'
@@ -33,6 +37,9 @@ alias utc='date -u'
 # alias sfpush='sfdx force:source:push'
 # alias sfpull='sfdx force:source:pull'
 # alias sfstat='sfdx force:source:status'
+
+# CUrrent project aliases
+alias bp='source bin/prep.sh'
 
 # Change to lab dir and set window title
 cld () {
@@ -47,6 +54,11 @@ cdp () {
 # Pretty dump JSON.
 jj () {
     underscore pretty --in $1 | less
+}
+
+# Run a script from the project bin directory.
+b () {
+    cmd=$1 ; shift ; bin/${cmd}.sh $@
 }
 
 # Current project aliases.
@@ -121,7 +133,7 @@ autoload -U +X bashcompinit && bashcompinit
 source ~/.bash-my-aws/bash_completion.sh
 
 # add my local python libraries and encode with UTF-8
-export PYTHONPATH=~/lab/vllib
+# export PYTHONPATH=~/lab/vllib
 export PYTHONIOENCODING=UTF-8
 
 # and enable virtualenvwrapper
@@ -156,3 +168,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Clean up path
 typeset -U path
 
+
+# Added by serverless binary installer
+# export PATH="$HOME/.serverless/bin:$PATH"
